@@ -1,13 +1,7 @@
-## Welcome to the repo for my Figma API tutorial.
+## Figma API Automation.
 
-Here are the links for the tutorials if you don't have them already:
-- [Part 1 ](https://medium.com/@danhollick/a-designers-guide-to-the-figma-api-64f2785969d8)
-- [Part 2 ](https://medium.com/@danhollick/a-designers-guide-to-the-figma-api-1c7be43afb18)
-- [Part 3 ](https://medium.com/@danhollick/a-designers-guide-to-the-figma-api-bef34b572352)
-- [Part 4 ](https://medium.com/@danhollick/a-designers-guide-to-the-figma-api-5e2fb1984882)
-- [Part 5 ](https://medium.com/@danhollick/a-designers-guide-to-the-figma-api-3a23a3f93d2)
-- [Part 6 ](https://medium.com/@danhollick/a-designers-guide-to-the-figma-api-326f51153fb7)
-- [Part 7 ](https://medium.com/@danhollick/a-designers-guide-to-the-figma-api-4f277131ef13)
+## Technology
+This project was made with React Native v16.12 and Node.js. Nodemon is used to allow the site to fast refresh during development. The Node server calls the Figma API, parses the JSON response, and then React displays the frame title and image in a scrollable grid.
 
 ## Installation.
 Clone this repo to your computer and run `npm install` in both the root directory and inside the `client` folder.
