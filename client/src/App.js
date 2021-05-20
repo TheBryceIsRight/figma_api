@@ -12,18 +12,16 @@ import { trackPromise } from 'react-promise-tracker';
 import BackToTop from './BackToTop';
 import Status from './Status';
 
-var containerStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  margin: 24,
-  height: '100vh',
-}
-
 
 var imgStyle = {
-  maxWidth: 1440,
+  maxWidth: '100%',
 }
+
+const containerHuge = {
+  maxWidth: '80rem',
+  padding: '0 1rem',
+  margin: '0 auto 6rem'
+};
 
 
 class App extends Component {
@@ -45,7 +43,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Status/>
+                <Status/>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu">
@@ -56,6 +54,8 @@ class App extends Component {
           </Typography>
         </Toolbar>
       </AppBar>
+      <div style={containerHuge}>
+
       <Grid container spacing={7} direction='column' alignItems='center' justify='flex-start'>
         <Grid item>
         <BackToTop/>
@@ -71,12 +71,12 @@ class App extends Component {
             <img src={frame.url} style={imgStyle} alt={frame.name}/>
             </Grid>
             <br/>
-            <br/>
             </Grid>
             
           )}
         </Grid>
       </Grid>
+      </div>
       </React.Fragment>
     )
   }
