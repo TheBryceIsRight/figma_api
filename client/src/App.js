@@ -67,7 +67,10 @@ class App extends Component {
             <Grid item key={i}>
             <img src={frame.url} style={imgStyle} alt={frame.name}/>
             </Grid>
+            <br/>
+            <br/>
             </Grid>
+            
           )
         ) : (
           <Skeleton variant="rect" width={1440} height={800} />

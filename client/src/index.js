@@ -21,7 +21,6 @@ const LoadingIndicator = props => {
             <Grid item>
             <img src={Logo} height={50}/>
             </Grid>
-
             <Grid item>
             <Skeleton variant='rect' width={1000} height={800} style={{borderRadius:6}}></Skeleton>
             </Grid>
