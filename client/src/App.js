@@ -9,6 +9,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import TableOfContents from './TableOfContents';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { trackPromise } from 'react-promise-tracker';
+import BackToTop from './BackToTop';
+import Status from './Status';
 
 var containerStyle = {
   display: 'flex',
@@ -43,6 +45,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <Status/>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu">
@@ -55,10 +58,10 @@ class App extends Component {
       </AppBar>
       <Grid container spacing={7} direction='column' alignItems='center' justify='flex-start'>
         <Grid item>
+        <BackToTop/>
         </Grid>
         <Grid item>
-        {this.state.images ? (
-          this.state.images.map(
+        { this.state.images.map(
             (frame,i) =>
             <Grid container spacing={2} direction='column'>
             <Grid item >
@@ -71,10 +74,7 @@ class App extends Component {
             <br/>
             </Grid>
             
-          )
-        ) : (
-          <Skeleton variant="rect" width={1440} height={800} />
-        )}
+          )}
         </Grid>
       </Grid>
       </React.Fragment>
