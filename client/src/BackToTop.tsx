@@ -58,7 +58,7 @@ export default function BackToTop() {
       <Toolbar id="back-to-top-anchor" />
       <ScrollTop>
       <Tooltip title={"Back to top"}>
-      <Fab color="secondary" size="small" aria-label="scroll back to top">
+      <Fab color="primary" size="small" aria-label="scroll back to top">
           <ArrowUpwardIcon />
         </Fab>
         </Tooltip>

@@ -3,8 +3,10 @@ var app = express()
 var fetch = require('isomorphic-fetch')
 require('dotenv').config();
 
-const FigmaAPIKey = '190114-46a6f35c-d869-4e2e-8663-5a33f8c38a96'
-const FigmaFileID = 'L3hGCyJ4xRCZQ9SK1f4MLD'
+const FigmaAPIKey = 'Your Figma API Key Here'
+const FigmaFileID = 'Your File ID here'
+
+//use the video tutorial to set this up
 
 async function figmaFileFetch(fileId){
     let result = await fetch('https://api.figma.com/v1/files/' + fileId , {
