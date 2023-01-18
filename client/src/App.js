@@ -56,7 +56,7 @@ class App extends Component {
       </AppBar>
       <div style={containerHuge}>
 
-      <Grid container spacing={7} direction='column' alignItems='center' justify='flex-start'>
+      <Grid container spacing={7} direction='column' alignItems='center' justify='space-between'>
         <Grid item>
         <BackToTop/>
         </Grid>
@@ -72,7 +72,6 @@ class App extends Component {
             </Grid>
             <br/>
             </Grid>
-            
           )}
         </Grid>
       </Grid>
