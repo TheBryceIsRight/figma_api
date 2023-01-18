@@ -42,11 +42,11 @@ async function figmaFileFetch(fileId){
 
     figmaImages = figmaImages.images
 
-
     return figmaFrames.map(frame => {
         return {
             name: frame.name,
-            url: figmaImages[frame.id]
+            url: figmaImages[frame.id],
+            backgroundColor: frame.backgroundColor,
         }
     })
 }

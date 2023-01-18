@@ -72,7 +72,6 @@ class App extends Component {
         </Toolbar>
       </AppBar>
       <div style={containerHuge}>
-
       <Grid container spacing={7} direction='column' alignItems='center' justify='space-between'>
         <Grid item>
         <BackToTop/>
@@ -93,8 +92,6 @@ class App extends Component {
           )}
         </Grid> */}
         <Grid item>
-        <Typography variant='h3' id="Styles">Styles</Typography>
-        <br/>
         { this.state.images.map(
             (frame,i) =>
             <Grid container spacing={2} direction='column'>
