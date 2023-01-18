@@ -9,12 +9,16 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { trackPromise } from 'react-promise-tracker';
 import BackToTop from './components/BackToTop';
 import Status from './components/Status';
-import { Paper } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 
 var imgStyle = {
   maxWidth: '100%',
 }
+
+var rectStyle = {
+  width: '200px',
+  height: '200px'}
 
 const containerHuge = {
   maxWidth: '80rem',
@@ -22,12 +26,26 @@ const containerHuge = {
   margin: '0 auto 6rem'
 };
 
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
 
 class App extends Component {
   state = { images: [
-    { name: '', url:''  }
-  ]
-}
+      { name: '', url:''  }
+    ]
+  }
+
+  state2 = { styles: [
+      { name: '', hex:''  }
+    ]
+  }
 
 
 
@@ -59,27 +77,13 @@ class App extends Component {
         <Grid item>
         <BackToTop/>
         </Grid>
-        <Grid item>
-        { this.state.images.map(
-            (frame,i) =>
-            <Grid container spacing={2} direction='column'>
-            <Grid item >
-            <Typography variant='h3' id={frame.name}>{frame.name}</Typography>
-            </Grid>
-            <Grid item key={i}>
-            <img src={frame.url} style={imgStyle} alt={frame.name}/>
-            <Paper elevation={1} color="#000"/>
-            </Grid>
-            <br/>
-            </Grid>
-          )}
-        </Grid>
         {/* <Grid item>
+        <Typography variant='h3' id="Images">Images</Typography>
         { this.state.images.map(
             (frame,i) =>
             <Grid container spacing={2} direction='column'>
             <Grid item >
-            <Typography variant='h3' id={frame.name}>{frame.name}</Typography>
+            <Typography variant='h5' id={frame.name}>{frame.name}</Typography>
             </Grid>
             <Grid item key={i}>
             <img src={frame.url} style={imgStyle} alt={frame.name}/>
@@ -88,6 +92,26 @@ class App extends Component {
             </Grid>
           )}
         </Grid> */}
+        <Grid item>
+        <Typography variant='h3' id="Styles">Styles</Typography>
+        <br/>
+        { this.state.images.map(
+            (frame,i) =>
+            <Grid container spacing={2} direction='column'>
+            <Grid item >
+            <Typography variant='h5' id={frame.name}>{frame.name}</Typography>
+            </Grid>
+            <Grid item key={i}>
+            <Button style={{
+                minWidth: '200px',
+                minHeight: '200px', 
+                backgroundColor: frame.name,
+              }} alt={frame.name} ripple/>
+            </Grid>
+            <br/>
+            </Grid>
+          )}
+        </Grid>
       </Grid>
       </div>
       </React.Fragment>
