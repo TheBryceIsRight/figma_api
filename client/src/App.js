@@ -109,12 +109,8 @@ class App extends Component {
                 backgroundColor: frame.name,
               }} alt={frame.name}/>
             </CopyToClipboard>
-            {/* <Button style={{
-                minWidth: '200px',
-                minHeight: '200px', 
-                backgroundColor: frame.name,
-              }} alt={frame.name} ripple/> */}
             </Grid>
+            <br/>
             <br/>
             </Grid>
           )}
@@ -122,7 +118,7 @@ class App extends Component {
       </Grid>
       <Snackbar
         anchorOrigin={{
-          vertical: 'bottom',
+          vertical: 'top',
           horizontal: 'center',
         }}
         open={this.state.open}
