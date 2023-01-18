@@ -3,8 +3,8 @@ var app = express()
 var fetch = require('isomorphic-fetch')
 require('dotenv').config();
 
-const FigmaAPIKey = 'Your Figma API Key Here'
-const FigmaFileID = 'Your File ID here'
+const FigmaAPIKey = process.env.FIGMA_API_KEY
+const FigmaFileID = process.env.FIGMA_FILE_ID
 
 //use the video tutorial to set this up
 
