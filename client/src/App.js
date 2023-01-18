@@ -43,8 +43,8 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-                <Status/>
-      <AppBar position="static">
+      <Status/>
+      <AppBar position="static" elevation={0}>
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu">
             <MenuIcon />
@@ -74,6 +74,20 @@ class App extends Component {
             </Grid>
           )}
         </Grid>
+        {/* <Grid item>
+        { this.state.images.map(
+            (frame,i) =>
+            <Grid container spacing={2} direction='column'>
+            <Grid item >
+            <Typography variant='h3' id={frame.name}>{frame.name}</Typography>
+            </Grid>
+            <Grid item key={i}>
+            <img src={frame.url} style={imgStyle} alt={frame.name}/>
+            </Grid>
+            <br/>
+            </Grid>
+          )}
+        </Grid> */}
       </Grid>
       </div>
       </React.Fragment>
