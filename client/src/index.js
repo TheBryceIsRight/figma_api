@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { usePromiseTracker } from "react-promise-tracker";
 import Skeleton from '@material-ui/lab/Skeleton';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Logo from './figma_loading.gif'
+import Loading from './assets/figma_loading.gif'
 
 const LoadingIndicator = props => {
     const { promiseInProgress } = usePromiseTracker();
@@ -19,7 +19,7 @@ const LoadingIndicator = props => {
                 <Typography variant='h5'>Pulling the latest designs from Figma</Typography>
             </Grid>
             <Grid item>
-            <img src={Logo} height={300} width={400} style={{borderRadius:6}}/>
+            <img src={Loading} height={300} width={400} style={{borderRadius:6}} alt="Loading Figma designs..."/>
             </Grid>
             <Grid item>
             <Skeleton variant='rect' width={1000} height={800} style={{borderRadius:6}}></Skeleton>

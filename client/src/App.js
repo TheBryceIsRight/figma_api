@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import './App.css'
+import './styles/App.css'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import TableOfContents from './TableOfContents';
-import Skeleton from '@material-ui/lab/Skeleton';
 import { trackPromise } from 'react-promise-tracker';
-import BackToTop from './BackToTop';
-import Status from './Status';
+import BackToTop from './components/BackToTop';
+import Status from './components/Status';
+import { Paper } from '@material-ui/core';
 
 
 var imgStyle = {
@@ -44,7 +43,7 @@ class App extends Component {
     return (
       <React.Fragment>
       <Status/>
-      <AppBar position="static" elevation={0}>
+      <AppBar position="static" elevation={0} color={'transparent'}>
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu">
             <MenuIcon />
@@ -69,6 +68,7 @@ class App extends Component {
             </Grid>
             <Grid item key={i}>
             <img src={frame.url} style={imgStyle} alt={frame.name}/>
+            <Paper elevation={1} color="#000"/>
             </Grid>
             <br/>
             </Grid>
