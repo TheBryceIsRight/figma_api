@@ -10,15 +10,17 @@ import { trackPromise } from 'react-promise-tracker';
 import BackToTop from './components/BackToTop';
 import Status from './components/Status';
 import { Button } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Snackbar from '@material-ui/core/Snackbar';
 
+// var imgStyle = {
+//   maxWidth: '100%',
+// }
 
-var imgStyle = {
-  maxWidth: '100%',
-}
-
-var rectStyle = {
-  width: '200px',
-  height: '200px'}
+// var rectStyle = {
+//   width: '200px',
+//   height: '200px'}
 
 const containerHuge = {
   maxWidth: '80rem',
@@ -26,28 +28,28 @@ const containerHuge = {
   margin: '0 auto 6rem'
 };
 
-function componentToHex(c) {
-  var hex = c.toString(16);
-  return hex.length == 1 ? "0" + hex : hex;
-}
-
-function rgbToHex(r, g, b) {
-  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-}
-
 
 class App extends Component {
-  state = { images: [
+  state = { 
+    images: [
       { name: '', url:''  }
-    ]
+    ],
+    value: 'Does this even work?',
+    copied: false,
+    open: false,
   }
 
-  state2 = { styles: [
-      { name: '', hex:''  }
-    ]
-  }
+  handleClick = () => {
+    this.setState({ open: true });
+  };
 
+  handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
 
+    this.setState({ open: false });
+  };
 
  componentDidMount() {
   trackPromise(fetch('/frames')
@@ -55,7 +57,6 @@ class App extends Component {
       .then(data => this.setState({ images: data }))
       .catch(error => console.log(error)));
   }
-
 
   render() {
     return (
@@ -91,6 +92,7 @@ class App extends Component {
             </Grid>
           )}
         </Grid> */}
+        
         <Grid item>
         { this.state.images.map(
             (frame,i) =>
@@ -99,17 +101,38 @@ class App extends Component {
             <Typography variant='h5' id={frame.name}>{frame.name}</Typography>
             </Grid>
             <Grid item key={i}>
-            <Button style={{
+            <CopyToClipboard text={frame.name}
+              onCopy={() => this.setState({copied: true, open: true, value: frame.name})}>
+              <Button style={{
                 minWidth: '200px',
                 minHeight: '200px', 
                 backgroundColor: frame.name,
-              }} alt={frame.name} ripple/>
+              }} alt={frame.name}/>
+            </CopyToClipboard>
+            {/* <Button style={{
+                minWidth: '200px',
+                minHeight: '200px', 
+                backgroundColor: frame.name,
+              }} alt={frame.name} ripple/> */}
             </Grid>
             <br/>
             </Grid>
           )}
         </Grid>
       </Grid>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        open={this.state.open}
+        autoHideDuration={6000}
+        onClose={this.handleClose}
+      >
+        <Alert onClose={this.handleClose} severity="success">
+            Copied {this.state.value}!
+        </Alert>
+      </Snackbar>
       </div>
       </React.Fragment>
     )
