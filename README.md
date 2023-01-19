@@ -1,4 +1,4 @@
-## Figma API Automation.
+## Figma API Automation
 
 ## Technology
 This project was made with React v16.12 and Node.js. Nodemon is used to allow the site to fast refresh during development. The Node server calls the Figma API, parses the JSON response, and then React displays the frame title and image in a scrollable grid.
